@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Order Management</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1254.0.min.js"></script>
+    <link rel="stylesheet" href="CSS/styles2.css">
+    <script src="JS/script2.js" defer></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>Digital Printing Photography</h1>
+        </div>
+        <nav class="navbar">  
+                
+            <ul>
+                <li><a href="#upload-section">Upload Photos</a></li>
+                <li><a href="#products-section" class="product-icon" id="product-icon">Products</a></li>
+                <li><a href="#summary-section">Order Summary</a></li>
+                <li><a href="#contact-section">Contact Us</a></li>
+                <li id="auth-section">
+                <li><a href="login.html" id="login-btn">Login</a></li>
+                    <a href="#" id="logout-btn" style="display: none">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="bg-color">
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="section">
+                <h2>Upload Your Photos</h2>
+                <p>Select your images to create your custom photo products.</p>
+                <div class="upload-container">
+                    <label class="upload-btn" for="photo-upload">Select Photos</label>
+                    <input type="file" id="photo-upload" multiple required>
+                    <!-- <input type="file" accept="image/jpeg, image/gif" id="key"> -->
+                    <button onclick="uploadimage()">Upload</button>
+                    <p id="status">status</p>
+                 
+                </div>
+
+                <!-- Customization Options -->
+                <div class="customization-options" id="customization-options">
+                    <h3>Customization</h3>
+                    <form method="post">
+                        <div>
+                            <h4>Select the no. of copies:
+                                <button type="button" class="button" id="decrement">-</button>
+                                <input type="number" name="copies" id="input" value="1" required>
+                                <button type="button" class="button" id="increment">+</button>
+                            </h4>
+                        </div>
+                        <div>
+                            <h4>Select the size of the Paper:
+                                <select name="size" id="option" required>
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="A1">A1 size</option>
+                                    <option value="A2">A2 size</option>
+                                    <option value="A3">A3 size</option>
+                                    <option value="A4">A4 size</option>
+                                    <option value="A5">A5 size</option>
+                                </select>
+                            </h4>
+                        </div>
+                        <div class="colors">
+                            <h4>Color or B/W:
+                                <input type="radio" name="r1" value="Coloured" checked> Coloured
+                                <input type="radio" name="r1" value="b/W"> Black and White
+                            </h4>
+                        </div>
+                        <div class="submit-container">
+                            <input type="submit" id="addToCart" name="S1" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Order Summary Section -->
+            <section id="summary-section" class="section">
+                <h2>Order Summary</h2>
+                <div class="order-summary">
+                    <!-- Order summary will be dynamically updated here -->
+                </div>
+            </section>
+
+            <!-- Address Section -->
+            <div class="section">
+                <form name="form3" class="address-form3" id="address-form">
+                    <h3>Enter your Address:</h3>
+                    <div class="box">
+                        <h4> Full Address: <input type="text" name="A1" id="full-address"
+                                placeholder="Write your Address here" required></h4>
+                    </div>
+                    <div class="box">
+                        <h4>State: <input type="text" name="A2" id="state" placeholder="State" required></h4>
+                    </div>
+                    <div class="box">
+                        <h4> City: <input type="text" name="A3" id="city" placeholder="City" required></h4>
+                    </div>
+                    <div class="box">
+                        <h4>Pincode: <input type="text" name="A4" id="pincode" placeholder="Pincode" required></h4>
+                    </div>
+                    <div class="submit-container">
+                        <input type="submit" class="send-message" id="saveAddress" name="S8" value="Proceed to Payment">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Section -->
+            <section id="contact-section" class="section">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, feel free to reach out to us.</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button class="send-message" type="submit">Send Message</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; Digital Photo Photography. All rights reserved.</p>
+    </footer>
+    <script src="./JS/orderTracking.js"></script>
+</body>
+
+
+</html>
